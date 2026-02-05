@@ -172,9 +172,116 @@ The agent runs inside a Moru sandbox. Template requirements:
 
 See `agent/` directory for the agent implementation.
 
+## Deployment (Vercel + PostgreSQL)
+
+### 1. Create PostgreSQL Database
+
+Choose one of these options:
+
+**Option A: Neon (Recommended - Free tier)**
+1. Go to [neon.tech](https://neon.tech) and sign in
+2. Click **New Project**
+3. Name your project and select a region
+4. Copy the connection string from the dashboard
+
+**Option B: Supabase**
+1. Go to [supabase.com](https://supabase.com) and sign in
+2. Click **New Project** and fill in details
+3. Go to **Project Settings** → **Database** → **Connection string**
+4. Use the **Transaction** URL for serverless:
+   ```
+   postgresql://postgres.[ref]:[password]@aws-0-[region].pooler.supabase.com:6543/postgres?pgbouncer=true
+   ```
+
+### 2. Deploy to Vercel
+
+```bash
+# Install Vercel CLI (if not installed)
+npm i -g vercel
+
+# Login to Vercel
+vercel login
+
+# Deploy from hackathon-starter directory
+cd ~/moru/hackathon-starter
+vercel
+```
+
+Follow the prompts to create a new project.
+
+### 3. Configure Environment Variables
+
+```bash
+# Add environment variables for production
+vercel env add DATABASE_URL production
+# Paste your PostgreSQL connection string
+
+vercel env add MORU_API_KEY production
+# Paste your Moru API key
+
+vercel env add BASE_URL production
+# Enter your production URL (e.g., https://hackathon-starter-sigma.vercel.app)
+```
+
+| Variable | Value | Description |
+|----------|-------|-------------|
+| `DATABASE_URL` | `postgresql://...` | PostgreSQL connection string |
+| `MORU_API_KEY` | `moru_...` | Moru API key |
+| `BASE_URL` | `https://your-app.vercel.app` | Your production URL |
+
+### 4. Push Database Schema
+
+```bash
+# Set DATABASE_URL locally for Prisma
+export DATABASE_URL="your-connection-string"
+
+# Push schema to database
+npx prisma db push
+```
+
+### 5. Deploy to Production
+
+```bash
+vercel --prod
+```
+
+### 6. Verify Deployment
+
+1. Open your Vercel production URL
+2. Send a test message: "Create a file called hello.txt"
+3. Check that:
+   - Workspace panel shows the created file
+   - No errors in Vercel logs
+
+### Troubleshooting
+
+**"Vulnerable version of Next.js detected"**
+- Update Next.js: `npm install next@latest react@latest react-dom@latest`
+- Redeploy: `vercel --prod`
+
+**"Can't reach database server"**
+- Check DATABASE_URL is correct
+- For Supabase, use the pooler/transaction URL
+- Verify database is active
+
+**"MORU_API_KEY not set"**
+- Add the environment variable: `vercel env add MORU_API_KEY production`
+- Redeploy after adding
+
+**Agent callback fails (ECONNREFUSED)**
+- Ensure BASE_URL matches your actual production URL
+- For local development, use a tunnel (ngrok) or deploy to Vercel
+
+**Vercel Authentication page appears**
+- Use the production alias URL (e.g., `hackathon-starter-sigma.vercel.app`)
+- Not the deployment-specific URL with random hash
+
+## Live Demo
+
+Production URL: https://hackathon-starter-sigma.vercel.app
+
 ## Next Steps
 
-1. Register `hackathon-ts-agent` template in Moru
-2. Test full conversation flow with valid API keys
-3. Verify JSONL message parsing from Claude Code sessions
-4. Test session resume functionality
+1. Test full conversation flow
+2. Verify file creation and workspace sync
+3. Test session resume functionality

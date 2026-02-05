@@ -31,10 +31,14 @@ export function parseSessionJSONL(content: string): SessionEntry[] {
 
 /**
  * Find the session JSONL file path from session ID
+ *
+ * Claude Code stores sessions at ~/.claude/projects/{project_hash}/{sessionId}.jsonl
+ * where project_hash is the working directory path with slashes replaced by hyphens.
+ *
+ * Since the agent runs with cwd=/workspace/data, the project_hash is "-workspace-data".
+ * With our setup: ~/.claude symlinked to /workspace/data/.claude
+ * So the file is at /workspace/data/.claude/projects/-workspace-data/{sessionId}.jsonl
  */
 export function getSessionFilePath(sessionId: string): string {
-  // Claude Code stores sessions at ~/.claude/projects/-workspace/{sessionId}.jsonl
-  // With our symlink: ~/.claude -> /workspace/data/.claude
-  // So the file is at /workspace/data/.claude/projects/-workspace/{sessionId}.jsonl
-  return `.claude/projects/-workspace/${sessionId}.jsonl`;
+  return `.claude/projects/-workspace-data/${sessionId}.jsonl`;
 }
