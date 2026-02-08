@@ -1,0 +1,4 @@
+scripts/
+venv/
+*.wav
+*.mp3

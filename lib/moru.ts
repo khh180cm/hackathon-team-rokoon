@@ -1,6 +1,6 @@
 import Sandbox, { Volume } from "@moru-ai/core";
 
-const TEMPLATE_NAME = "moru-hackathon-agent";
+const TEMPLATE_NAME = "team-rokoon-agent";
 
 /**
  * Create a new volume for a conversation
@@ -42,7 +42,7 @@ export async function createAndLaunchAgent(
   const sandbox = await Sandbox.create(TEMPLATE_NAME, {
     volumeId,
     volumeMountPath: "/workspace/data",
-    timeoutMs: 30 * 60 * 1000, // 30 minutes
+    timeoutMs: 10 * 60 * 1000, // 10 minutes
   });
 
   // Create symlink ~/.claude -> /workspace/data/.claude so session files persist to volume

@@ -18,22 +18,11 @@ node_modules
 # production
 /build
 
-# misc
-.DS_Store
-*.pem
-
 # debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
-
-# env files
-.env
-.env*.local
-
-# vercel
-.vercel
 
 # typescript
 *.tsbuildinfo
@@ -42,3 +31,200 @@ next-env.d.ts
 # prisma
 prisma/*.db
 prisma/*.db-journal
+
+# voice samples & scripts
+scripts/
+venv/
+*.wav
+*.mp3
+
+# Created by https://www.toptal.com/developers/gitignore/api/macos,windows,linux,visualstudiocode,pycharm,jetbrains,jetbrains+all,jetbrains+iml,sublimetext,vercel,venv,dotenv,virtualenv
+# Edit at https://www.toptal.com/developers/gitignore?templates=macos,windows,linux,visualstudiocode,pycharm,jetbrains,jetbrains+all,jetbrains+iml,sublimetext,vercel,venv,dotenv,virtualenv
+
+### dotenv ###
+.env
+
+### JetBrains ###
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
+# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+
+# User-specific stuff
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+
+# AWS User-specific
+.idea/**/aws.xml
+
+# Generated files
+.idea/**/contentModel.xml
+
+# Sensitive or high-churn files
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/dbnavigator.xml
+
+# Gradle
+.idea/**/gradle.xml
+.idea/**/libraries
+
+# CMake
+cmake-build-*/
+
+# Mongo Explorer plugin
+.idea/**/mongoSettings.xml
+
+# File-based project format
+*.iws
+
+# IntelliJ
+out/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Cursive Clojure plugin
+.idea/replstate.xml
+
+# SonarLint plugin
+.idea/sonarlint/
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+
+# Editor-based Rest Client
+.idea/httpRequests
+
+# Android studio 3.1+ serialized cache file
+.idea/caches/build_file_checksums.ser
+
+### JetBrains Patch ###
+.idea/**/sonarlint/
+.idea/**/sonarIssues.xml
+.idea/**/markdown-navigator.xml
+.idea/**/markdown-navigator-enh.xml
+.idea/**/markdown-navigator/
+.idea/$CACHE_FILE$
+.idea/codestream.xml
+.idea/**/azureSettings.xml
+
+### JetBrains+all ###
+.idea/*
+!.idea/codeStyles
+!.idea/runConfigurations
+
+### JetBrains+iml ###
+*.iml
+modules.xml
+.idea/misc.xml
+*.ipr
+
+### Linux ###
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+### macOS ###
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+*.icloud
+
+### PyCharm ###
+# (covered by JetBrains section above)
+
+### SublimeText ###
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+sftp-config.json
+sftp-config-alt*.json
+Package Control.last-run
+Package Control.ca-list
+Package Control.ca-bundle
+Package Control.system-ca-bundle
+Package Control.cache/
+Package Control.ca-certs/
+Package Control.merged-ca-bundle
+Package Control.user-ca-bundle
+oscrypto-ca-bundle.crt
+bh_unicode_properties.cache
+GitHub.sublime-settings
+
+### venv ###
+.Python
+pyvenv.cfg
+.venv
+venv/
+pip-selfcheck.json
+
+### Vercel ###
+.vercel
+
+### VirtualEnv ###
+# (covered by venv section above)
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+.history/
+*.vsix
+.history
+.ionide
+
+### Windows ###
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# env files
+.env*.local
+
+### misc ###
+*.pem
+
+# End of https://www.toptal.com/developers/gitignore/api/macos,windows,linux,visualstudiocode,pycharm,jetbrains,jetbrains+all,jetbrains+iml,sublimetext,vercel,venv,dotenv,virtualenv
