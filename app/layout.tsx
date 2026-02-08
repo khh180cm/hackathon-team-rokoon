@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Hackathon Starter",
-  description: "Claude Agent SDK + Moru Sandbox Demo",
+  title: "고민뭐하니 — AI 셀럽 고민 상담 라디오",
+  description: "유명인 패널들이 당신의 고민을 함께 풀어드립니다",
 };
 
 export default function RootLayout({
@@ -24,11 +23,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="ko" className="dark">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <TooltipProvider delayDuration={0}>{children}</TooltipProvider>
+        {children}
       </body>
     </html>
   );
