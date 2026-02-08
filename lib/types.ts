@@ -172,6 +172,25 @@ export function isImageBlock(block: ContentBlock): block is ImageBlock {
 }
 
 // ============================================================================
+// Podcast Types
+// ============================================================================
+
+export interface Panelist {
+  id: string;
+  name: string;
+  emoji: string;
+  image: string;
+  color: string;
+  role: "moderator" | "panelist";
+  shortBio: string;
+}
+
+export interface PodcastTurn {
+  speakerId: string;
+  text: string;
+}
+
+// ============================================================================
 // API Types
 // ============================================================================
 
