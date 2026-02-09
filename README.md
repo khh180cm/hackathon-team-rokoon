@@ -8,9 +8,7 @@
 
 [![Deploy](https://img.shields.io/badge/demo-live-brightgreen)](https://hackerton-rokoon.vercel.app)
 
-<img src="docs/screenshot-landing.png" alt="랜딩 페이지" width="480" />
-
-<img src="docs/screenshot-player.png" alt="팟캐스트 플레이어" width="480" />
+<img src="docs/screenshot-landing.png" alt="랜딩 페이지" width="380" />&nbsp;&nbsp;<img src="docs/screenshot-player.png" alt="팟캐스트 플레이어" width="380" />
 
 </div>
 
